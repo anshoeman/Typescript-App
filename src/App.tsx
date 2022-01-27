@@ -17,6 +17,13 @@ function App() {
       date: new Date().toString(),
     },
   ]);
+  React.useEffect(() => {
+    let notesStorage = localStorage.getItem("notes") || "{}";
+    setNotes(JSON.parse(notesStorage));
+  }, []);
+  React.useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
   return (
     <div className="App">
       <Header />

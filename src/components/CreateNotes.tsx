@@ -14,11 +14,13 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({
   const titleRef = React.useRef<HTMLInputElement | null>(null);
   const textRef = React.useRef<HTMLInputElement | null>(null);
   const colorRef = React.useRef<HTMLInputElement | null>(null);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (titleRef.current?.value === "" || textRef.current?.value === "") {
       return setError("All Feilds Are Mandatory");
     }
+
     setError("");
     setNotes([
       ...notes,
